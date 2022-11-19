@@ -12,9 +12,7 @@ copy the creds logged on console and login `http://localhost:3000/api/v1/admin/l
     "password": "test@123"
 }'`
 
-# upload data.csv
-route `http://localhost:3000/api/v1/upload`  
-upload data.csv file  
+# upload data.csv   
 `curl --location --request POST 'http://localhost:3000/api/v1/upload' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --form 'file=@"/home/azad/Downloads/data-sheet.csv"'`
@@ -25,22 +23,7 @@ method: 'GET'
 body -  `{phone: phone}`  
 
 
-2. create user -> `http://localhost:3000/api/v1/create/user`    
-body - `{
-     {
-        "first_name": "Jacinto",
-        "last_name": "Deland",
-        "phone": "6880282402",
-        "email": "warrior@comcast.net",
-        "dob": "1980-07-11",
-        "gender": "",
-        "address": {
-            "address": "744 Peters Creek Pkwy Uppr B",
-            "state": "NC",
-            "city": "Winston Salem",
-            "zip": "27103-3874"
-        }
-}`   
+2. create user     
 `curl --location --request POST 'http://localhost:3000/api/v1/create/user' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
@@ -59,12 +42,7 @@ body - `{
     }
 }'`
 
-3. update user - `http://localhost:3000/api/v1/update/user`  
-method - `PUT`  
-body: `{
-    phone: phone,
-    update: {update object}
-}`   
+3. update user   
 `curl --location --request PUT 'http://localhost:3000/api/v1/update/user' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
@@ -85,11 +63,7 @@ body: `{
     }
 }'`
 
-4. delete user - `http://localhost:3000/api/v1/delete/user`  
-method - `DELETE`  
-body - `{
-    phone: phone
-}`  
+4. delete user    
 `curl --location --request DELETE 'http://localhost:3000/api/v1/delete/user' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
@@ -98,9 +72,7 @@ body - `{
 }'`
 
 # user account api
-1. create account - `http://localhost:3000/api/v1/create/user/account`  
-method - `POST`  
-body {}  
+1. create account   
 `curl --location --request POST 'http://localhost:3000/api/v1/create/user/account' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
@@ -121,8 +93,7 @@ body {}
     }
 }'`  
 
-2. fetch account - `http://localhost:3000/api/v1/fetch/user/account`   
-method - `GET`  
+2. fetch account   
 `curl --location --request GET 'http://localhost:3000/api/v1/fetch/user/account' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
@@ -130,8 +101,7 @@ method - `GET`
     "phone": "8677356559"
 }'`
 
-3. update account - `http://localhost:3000/api/v1/update/user/account`  
-Method - `PUT`  
+3. update account   
 `curl --location --request PUT 'http://localhost:3000/api/v1/update/user/account' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
