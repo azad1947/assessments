@@ -1,4 +1,4 @@
-#run the app
+# run the app
 1. `npm run dev` it will send the error stack
 2. `npm run prod` it will not send the error stack
 
