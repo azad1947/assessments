@@ -5,26 +5,30 @@
 once the app runs, it will generate a test user.
 copy the creds logged on console and login `http://localhost:3000/api/v1/admin/login` to get the `auth_token` and send in the header as `authorization: Bearer auth_token`  
 
-`curl --location --request POST 'http://localhost:3000/api/v1/admin/login' \
+curl --location --request POST 'http://localhost:3000/api/v1/admin/login' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "email": "admin@admin.com",
     "password": "test@123"
-}'`
+}'
 
 # upload data.csv   
-`curl --location --request POST 'http://localhost:3000/api/v1/upload' \
+curl --location --request POST 'http://localhost:3000/api/v1/upload' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
---form 'file=@"/home/azad/Downloads/data-sheet.csv"'`
+--form 'file=@"/home/azad/Downloads/data-sheet.csv"'
 
 # user apis
-1. fetch user `http://localhost:3000/api/v1/fetch/user`  
-method: 'GET'  
-body -  `{phone: phone}`  
+1. fetch user   
+curl --location --request GET 'http://localhost:3000/api/v1/fetch/user' \
+--header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "phone": "8677356559"
+}'
 
 
 2. create user     
-`curl --location --request POST 'http://localhost:3000/api/v1/create/user' \
+curl --location --request POST 'http://localhost:3000/api/v1/create/user' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -40,10 +44,10 @@ body -  `{phone: phone}`
         "city": "MOCKSVILLE",
         "zip": "27028"
     }
-}'`
+}'
 
-3. update user   
-`curl --location --request PUT 'http://localhost:3000/api/v1/update/user' \
+3. update user      
+curl --location --request PUT 'http://localhost:3000/api/v1/update/user' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -61,10 +65,10 @@ body -  `{phone: phone}`
             "zip": "27028"
         }
     }
-}'`
+}'
 
 4. delete user    
-`curl --location --request DELETE 'http://localhost:3000/api/v1/delete/user' \
+curl --location --request DELETE 'http://localhost:3000/api/v1/delete/user' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -73,7 +77,8 @@ body -  `{phone: phone}`
 
 # user account api
 1. create account   
-`curl --location --request POST 'http://localhost:3000/api/v1/create/user/account' \
+
+curl --location --request POST 'http://localhost:3000/api/v1/create/user/account' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -91,18 +96,20 @@ body -  `{phone: phone}`
         "city": "MOCKSVILLE",
         "zip": "27028"
     }
-}'`  
+}'
 
 2. fetch account   
-`curl --location --request GET 'http://localhost:3000/api/v1/fetch/user/account' \
+
+curl --location --request GET 'http://localhost:3000/api/v1/fetch/user/account' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "phone": "8677356559"
-}'`
+}'
 
-3. update account   
-`curl --location --request PUT 'http://localhost:3000/api/v1/update/user/account' \
+3. update account    
+
+curl --location --request PUT 'http://localhost:3000/api/v1/update/user/account' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -122,17 +129,21 @@ body -  `{phone: phone}`
             "zip": "27028"
         }
     }
-}'`
+}'
 
-4. delete account `curl --location --request DELETE 'http://localhost:3000/api/v1/delete/user/account' \
+4. delete account   
+
+curl --location --request DELETE 'http://localhost:3000/api/v1/delete/user/account' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "phone": "8677356559"
-}'`
+}'
 
 # policy apis
-1. create policy `curl --location --request POST 'http://localhost:3000/api/v1/create/policy' \
+1. create policy   
+
+curl --location --request POST 'http://localhost:3000/api/v1/create/policy' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -168,23 +179,29 @@ body -  `{phone: phone}`
     "agency_id": "0120c6a9-b3bc-46c8-b2cb-7c63f73b1914",
     "has_active_client_policy": "",
     "__v": 0
-}'`   
+}'
 
-2. fetch policy `curl --location --request GET 'http://localhost:3000/api/v1/fetch/policy' \
+2. fetch policy   
+
+curl --location --request GET 'http://localhost:3000/api/v1/fetch/policy' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "policy_number": "YEEX9MOIBU7X"
-}'`  
+}'  
 
-3. delete policy `curl --location --request DELETE 'http://localhost:3000/api/v1/delete/policy' \
+3. delete policy   
+
+curl --location --request DELETE 'http://localhost:3000/api/v1/delete/policy' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
 --data-raw '{
     "policy_number": "YEEX9MOIBU7X"
-}'`   
+}'
 
-4. update policy `curl --location --request PUT 'http://localhost:3000/api/v1/update/policy' \
+4. update policy   
+
+curl --location --request PUT 'http://localhost:3000/api/v1/update/policy' \
 --header 'Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoiYjMzZTBhMjItMTAzZS00MjY4LWFjY2MtNDg2ZjRjNWQwMmUxIiwidXNlcl90eXBlIjoiYWRtaW4iLCJsb2dnZWRfaW4iOnRydWUsImlhdCI6MTY2ODg4MjM0OSwiZXhwIjoxNjY5NDg3MTQ5fQ.NEyxTqh9ITx_DVtA1lqhjxE-ULGVWRh8QOV6mswxfxA' \
 --header 'Content-Type: application/json' \
 --data-raw '{
@@ -222,7 +239,7 @@ body -  `{phone: phone}`
         "has_active_client_policy": "",
         "__v": 0
     }
-}'`
+}'
 
 
 
